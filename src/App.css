@@ -1,0 +1,513 @@
+.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.app.rtl {
+  direction: rtl;
+  /* Cairo font for Arabic */
+  font-family: 'Cairo', sans-serif;
+}
+
+.app.ltr {
+  direction: ltr;
+  /* Roboto font for English */
+  font-family: 'Roboto', system-ui, sans-serif;
+}
+
+.main-content {
+  padding-top: 80px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* RTL Support */
+.rtl .main-content {
+  font-family: 'Cairo', sans-serif;
+}
+
+/* RTL specific typography adjustments */
+.rtl h1,
+.rtl h2,
+.rtl h3,
+.rtl h4,
+.rtl h5,
+.rtl h6 {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.rtl p,
+.rtl button,
+.rtl input,
+.rtl label,
+.rtl span {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Fix for RTL input fields */
+.rtl input,
+.rtl textarea {
+  text-align: right;
+}
+
+/* Animation classes */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+/* Score animations */
+.score-positive {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.score-negative {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.score-zero {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Button animations */
+.btn-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95;
+}
+
+.rtl .btn-primary {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 500;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95;
+}
+
+.rtl .btn-secondary {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 500;
+}
+
+.btn-success {
+  @apply bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95;
+}
+
+.rtl .btn-success {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 500;
+}
+
+.btn-danger {
+  @apply bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95;
+}
+
+.rtl .btn-danger {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 500;
+}
+
+/* Card animations */
+.card {
+  @apply bg-white rounded-xl shadow-lg p-6 transition-all duration-200 hover:shadow-xl;
+}
+
+.card-hover {
+  @apply transform hover:scale-105 transition-transform duration-200;
+}
+
+/* Input styles */
+.input-field {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200;
+}
+
+.rtl .input-field {
+  font-family: 'Cairo', sans-serif;
+  text-align: right;
+}
+
+.input-field:focus {
+  @apply outline-none;
+}
+
+/* Number pad styles */
+.number-pad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.number-pad button {
+  @apply h-12 bg-gray-100 hover:bg-gray-200 rounded-lg font-semibold text-lg transition-all duration-150 active:scale-95;
+}
+
+.rtl .number-pad button {
+  font-family: 'Cairo', sans-serif;
+}
+
+.number-pad button:active {
+  @apply bg-gray-300;
+}
+
+/* Footer styles */
+footer {
+  margin-top: auto;
+}
+
+/* Tab styles */
+.tab-nav {
+  @apply flex border-b border-gray-200 mb-4;
+}
+
+.tab-btn {
+  @apply px-4 py-2 font-medium text-sm transition-colors;
+}
+
+.rtl .tab-btn {
+  font-family: 'Cairo', sans-serif;
+}
+
+.tab-btn.active {
+  @apply text-blue-600 border-b-2 border-blue-600;
+}
+
+.tab-btn:not(.active) {
+  @apply text-gray-500 hover:text-gray-700 hover:bg-gray-50;
+}
+
+/* Mobile menu styles */
+.mobile-menu-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-50 z-40;
+}
+
+.mobile-menu {
+  @apply fixed top-0 right-0 bottom-0 bg-white w-3/4 max-w-sm z-50 shadow-xl transform transition-transform duration-300 ease-in-out;
+}
+
+.mobile-menu.open {
+  @apply translate-x-0;
+}
+
+.mobile-menu.closed {
+  @apply translate-x-full;
+}
+
+/* Table styles */
+.rounds-table {
+  @apply w-full text-sm text-left text-gray-500;
+}
+
+.rounds-table th {
+  @apply py-3 px-4 bg-gray-50 text-xs font-medium text-gray-700 uppercase tracking-wider;
+}
+
+.rounds-table td {
+  @apply py-3 px-4 border-t border-gray-200;
+}
+
+.rounds-table-container {
+  @apply overflow-x-auto shadow-md rounded-lg;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Sticky header for tables */
+.sticky-header th {
+  position: sticky;
+  top: 0;
+  background-color: #f9fafb;
+  z-index: 10;
+  box-shadow: 0 1px 0 0 #e5e7eb;
+}
+
+/* Loading spinner */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #2D9CDB;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Confetti Animation */
+.confetti-container {
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  animation: confetti-fall linear infinite;
+  border-radius: 2px;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Enhanced styles for image capture */
+.capture-container {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  max-height: none !important; /* Ensure no height limitation */
+  overflow: visible !important; /* Critical to prevent cropping */
+}
+
+#results-section {
+  /* Ensure content is fully visible during capture */
+  overflow: visible !important;
+  height: auto !important;
+  max-height: none !important;
+  min-height: auto !important;
+  
+  /* Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  
+  /* Ensure proper background rendering */
+  background-clip: padding-box;
+  
+  /* Disable any transforms that might interfere */
+  transform: none !important;
+  
+  /* Ensure proper z-index stacking */
+  z-index: 1;
+  position: relative;
+  
+  /* Better font rendering */
+  font-feature-settings: "liga", "kern";
+}
+
+#results-section * {
+  /* Ensure all child elements are visible */
+  overflow: visible !important;
+  
+  /* Prevent any clipping */
+  clip: none !important;
+  clip-path: none !important;
+  
+  /* Ensure proper rendering */
+  backface-visibility: visible !important;
+  transform-style: preserve-3d;
+  
+  /* Better text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#results-section table {
+  /* Ensure tables don't get clipped */
+  table-layout: fixed !important;
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+#results-section th,
+#results-section td {
+  /* Ensure table cells are properly sized */
+  overflow: visible !important;
+  text-overflow: clip !important;
+  
+  /* Improve text rendering in tables */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#results-section img {
+  /* Ensure images render properly */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  max-width: 100%;
+  height: auto;
+}
+
+#results-section .confetti-piece {
+  /* Ensure confetti is visible in capture */
+  opacity: 0.8 !important;
+  display: block !important;
+  position: absolute !important;
+}
+
+/* Final scores section styles for capture */
+.final-scores-section {
+  background: white !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  margin-bottom: 24px !important;
+  overflow: visible !important;
+}
+
+.final-scores-section h3 {
+  color: #1f2937 !important;
+  font-size: 18px !important;
+  font-weight: bold !important;
+  margin-bottom: 16px !important;
+}
+
+.player-score-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: white !important;
+  border-radius: 8px !important;
+  padding: 12px !important;
+  margin-bottom: 8px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.rounds-table-section {
+  background: white !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  overflow: visible !important;
+}
+
+.rounds-table-section h3 {
+  color: #1f2937 !important;
+  font-size: 18px !important;
+  font-weight: bold !important;
+  margin-bottom: 16px !important;
+}
+
+/* Remove footer logo from captures */
+.capture-mode-active .footer-logo,
+.capture-mode-active .capture-remove-logo {
+  display: none !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 70px;
+  }
+  
+  .card {
+    @apply mx-4 p-4;
+  }
+  
+  .btn-primary,
+  .btn-secondary,
+  .btn-success,
+  .btn-danger {
+    @apply py-2 px-4 text-sm;
+  }
+  
+  .rounds-table-container {
+    max-height: 300px;
+  }
+  
+  /* Ensure mobile captures work properly */
+  #results-section {
+    margin: 0 !important;
+    padding: 16px !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+  
+  #results-section table {
+    font-size: 12px !important;
+  }
+  
+  #results-section th,
+  #results-section td {
+    padding: 8px 4px !important;
+  }
+}
+
+/* PWA specific styles */
+@media (display-mode: standalone) {
+  .main-content {
+    padding-top: 20px;
+  }
+  
+  /* Hide browser-specific UI in standalone mode */
+  .browser-ui-only {
+    display: none;
+  }
+  
+  /* Add safe area insets for notched devices */
+  .app {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .app {
+    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  }
+}
+
+/* Print styles for better image rendering */
+@media print {
+  #results-section {
+    background: #1F2937 !important;
+    color: white !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  #results-section * {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  #results-section {
+    image-rendering: -webkit-optimize-contrast;
+  }
+  
+  #results-section img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}

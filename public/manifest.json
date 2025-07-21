@@ -1,0 +1,50 @@
+{
+  "name": "Hand Score Calculator",
+  "short_name": "Hand",
+  "description": "Track your Hand card game scores easily with support for team mode and Full Hand logic.",
+  "start_url": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#2D9CDB",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "categories": ["games", "utilities", "entertainment"],
+  "lang": "en",
+  "dir": "ltr",
+  "shortcuts": [
+    {
+      "name": "New Game",
+      "short_name": "New Game",
+      "description": "Start a new Hand game",
+      "url": "/#/setup",
+      "icons": [{ "src": "logo192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Saved Games",
+      "short_name": "Saved",
+      "description": "View your saved games",
+      "url": "/#/saved",
+      "icons": [{ "src": "logo192.png", "sizes": "192x192" }]
+    }
+  ]
+}

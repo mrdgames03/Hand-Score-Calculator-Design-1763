@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-ar: 'Cairo', sans-serif;
+  --font-en: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-en);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* RTL support for Arabic */
+[dir="rtl"] body {
+  font-family: var(--font-ar);
+  letter-spacing: 0;
+}
+
+/* Arabic text specific styles */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-family: var(--font-ar);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+[dir="rtl"] p,
+[dir="rtl"] span,
+[dir="rtl"] div,
+[dir="rtl"] button,
+[dir="rtl"] input,
+[dir="rtl"] label,
+[dir="rtl"] textarea {
+  font-family: var(--font-ar);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+[dir="rtl"] button,
+[dir="rtl"] .btn-primary,
+[dir="rtl"] .btn-secondary,
+[dir="rtl"] .btn-success,
+[dir="rtl"] .btn-danger {
+  font-family: var(--font-ar);
+  font-weight: 500;
+}
+
+/* English text specific styles */
+[dir="ltr"] h1,
+[dir="ltr"] h2,
+[dir="ltr"] h3,
+[dir="ltr"] h4,
+[dir="ltr"] h5,
+[dir="ltr"] h6 {
+  font-family: var(--font-en);
+  font-weight: 700;
+}
+
+[dir="ltr"] p,
+[dir="ltr"] span,
+[dir="ltr"] div,
+[dir="ltr"] button,
+[dir="ltr"] input,
+[dir="ltr"] label,
+[dir="ltr"] textarea {
+  font-family: var(--font-en);
+  font-weight: 400;
+}
+
+/* Global adjustments for both languages */
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* Fix for RTL form elements */
+[dir="rtl"] input,
+[dir="rtl"] textarea {
+  text-align: right;
+}
+
+/* Input field focus styles */
+.input-field:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5) !important;
+  border-color: #3b82f6 !important;
+}
+
+/* Prevent iOS zoom on input focus */
+@media screen and (max-width: 767px) {
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  textarea {
+    font-size: 16px;
+  }
+}
+
+/* Prevent focus outline on buttons */
+button:focus {
+  outline: none;
+}
+
+/* Ensure inputs don't lose focus on parent re-render */
+input[type="text"]:focus-visible,
+input[type="number"]:focus-visible,
+textarea:focus-visible {
+  outline: none !important;
+}
